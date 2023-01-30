@@ -1,0 +1,26 @@
+* create a new repository on the command line
+
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/springprojectpoc/poc.git (to remove use command : git remote remove origin)
+git push -u origin master
+
+* Unstage committed file
+	git rm --cached ReadMe.md.txt    
+	
+
+*Create branch from local : 
+	git branch new_branch_name
+	
+It creates branch locally. The current branch master-2 has no upstream branch.
+To push the current branch and set the remote as upstream, use command
+    git push --set-upstream origin master-2
+Now branch reflects in branch dropdown
+
+	
+
+	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
+	
+	
