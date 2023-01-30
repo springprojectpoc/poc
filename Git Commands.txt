@@ -1,0 +1,3 @@
+Unstage committed file
+	git rm --cached ReadMe.md.txt    
+	
