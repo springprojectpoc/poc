@@ -2,3 +2,28 @@
 	MATCH(n) RETURN n;
 *DELETE all nodes
 	MATCH(n) DETACH DELETE n;
+*Return 5 node	
+	MATCH (n) RETURN n LIMIT 5;	
+*Where clause:
+	MATCH(p:Person) where p.name='Christina Ricci' return p ;	
+*Relationship
+	MATCH (node1)-[rel:DIRECTED]->(node2)
+	WHERE node2.title='The Matrix'
+	RETURN node1.name,rel.DIRECTED,node2.title
+	limit 5;
+	
+	MATCH (node1)-[rel:ACTED_IN]->(node2)
+	WHERE node2.title='The Matrix'
+	RETURN node1.name,rel.DIRECTED,node2.title
+	limit 5;
+*Triple relationship
+	MATCH(p1:Person)-[:HAS_CONTACT]-(p2:Person)-[:HAS_CONTACT]-(p3:Person)
+	return p1,p2,p3 limit 3;
+	
+	MATCH(p1:Person)-[:HAS_CONTACT]->(p2)-[:HAS_CONTACT]->(p3)
+	return p1.name,p2.name,p3.name limit 3;
+*Filter
+	MATCH(tom:Person{born:1967,name:'Carrie-Anne Moss'}) return tom limit 1;
+
+* NOT operator
+	MATCH(person:Person)-->(movie:Movie) where movie.title='Unforgiven' and  NOT(person)-[:DIRECTED]->(movie) return person,movie;	
